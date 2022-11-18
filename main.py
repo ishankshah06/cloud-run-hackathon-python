@@ -33,7 +33,7 @@ def move():
     request.get_data()
     logger.info(request.json)
     request_input = request.json
-    for val in request_input['arena']:
+    for val in request_input['arena']['state'][0]:
         print (val)
     # TODO add your implementation here to replace the random response
     print("val printintg")
