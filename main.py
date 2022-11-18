@@ -36,7 +36,7 @@ def move():
     print(request.json)
     # TODO add your implementation here to replace the random response
     print("Test print")
-    
+    print(PlayerState.x)
     return moves[random.randrange(len(moves))]
 
 if __name__ == "__main__":
