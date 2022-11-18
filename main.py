@@ -22,7 +22,7 @@ logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-moves = ['F', 'T', 'L', 'R']
+moves = ['F', 'T', 'L', 'R','T','T','T','T','T','L','R','F','T','T','R','F','T']
 
 @app.route("/", methods=['GET'])
 def index():
@@ -46,25 +46,55 @@ def move():
     if washit == True:
         return 'R'
     print(mypos, mylocx, mylocy)
+    # if mydirection == 'W':
+    #     hitzonex = mylocx + 3
+    #     hitzoney = mylocy + 3
+    #     if hitzonex > dimsx :
+    #         lagdim = hitzonex - dimsx
+    #         if lagdim < 3:
+    #             lagdimy = dimsy - hitzoney
+    #             if lagdimy < 3:
+    #                 return 'R'
+    #             else:
+    #                 return 'L'
+    enemyfound = False
+    if mydirection == 'N':
+        movelocationlag = dimsy - mylocy
+        if movelocationlag > 3 :
+            for target in request_input['arena']['state']:
+                if mypos not in target:
+                    enemylocx = target['x']
+                    enemylocy = target['y']
+                    if enemylocx == mylocx:
+                        if enemylocy > mylocy:
+                            if enemylocy - mylocy < 3:
+                                return 'T'
+                                enemyfound = True
+    
+
     if mydirection == 'W':
-        hitzonex = mylocx + 3
-        hitzoney = mylocy + 3
-        if hitzonex > dimsx :
-            lagdim = hitzonex - dimsx
-            if lagdim < 3:
-                lagdimy = dimsy - hitzoney
-                if lagdimy < 3:
-                    return 'R'
-                else:
-                    return 'L'
+        movelocationlag = dimsx - mylocx
+        if movelocationlag > 3 :
+            for target in request_input['arena']['state']:
+                if mypos not in target:
+                    enemylocx = target['x']
+                    enemylocy = target['y']
+                    if enemylocy == mylocy:
+                        if enemylocx > mylocx:
+                            if enemylocy - mylocy < 3:
+                                enemyfound = True
+                                return 'T'                        
+                                
+    
+
 
             
         
     # TODO add your implementation here to replace the random response
     
     
-    # return moves[random.randrange(len(moves))]
-    return 'T'
+    return moves[random.randrange(len(moves))]
+    # return 'T'
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
