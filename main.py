@@ -33,11 +33,10 @@ def move():
     request.get_data()
     logger.info(request.json)
     request_input = request.json
-    print(type(request_input))
-    print("Datais printing ")
-    print(request.json)
+    for val in request_input['arena']:
+        print (val)
     # TODO add your implementation here to replace the random response
-    print("Test print")
+    print("val printintg")
     
     return moves[random.randrange(len(moves))]
 
