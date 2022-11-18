@@ -33,17 +33,26 @@ def move():
     request.get_data()
     logger.info(request.json)
     request_input = request.json
+    dimsx = request_input['arena']['dims'][0]
+    dimsy = request_input['arena']['dims'][1]
     ## getting my position 
     print("new deployment")
     mypos = request_input['_links']['self']['href']
     mylocx = request_input['arena']['state'][mypos]['x']
     mylocy = request_input['arena']['state'][mypos]['y']
     print(mypos, mylocx, mylocy)
+    hitzonex = mylocx + 3
+    if hitzonex > dimsx :
+        lagdim = hitzonex - dimsx
+    movezone = mylocx - 3
+    
+            
         
     # TODO add your implementation here to replace the random response
     
     
-    return moves[random.randrange(len(moves))]
+    # return moves[random.randrange(len(moves))]
+    return 'T'
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
