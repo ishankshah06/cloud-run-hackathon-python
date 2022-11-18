@@ -43,8 +43,8 @@ def move():
     mydirection = request_input['arena']['state'][mypos]['direction']
     washit = request_input['arena']['state'][mypos]['wasHit']
 
-    if washit == True:
-        return 'R'
+    # if washit == True:
+    #     return 'R'
     print(mypos, mylocx, mylocy)
     # if mydirection == 'W':
     #     hitzonex = mylocx + 3
