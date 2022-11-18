@@ -33,10 +33,15 @@ def move():
     request.get_data()
     logger.info(request.json)
     request_input = request.json
-    for val in request_input['arena']['state'][0]:
-        print (val)
-    # TODO add your implementation here to replace the random response
+    ## getting my position 
     print("val printintg")
+    mypos = request_input['_links']['self']['href']
+    mylocx = request_input['arena']['state'][mypos]['x']
+    mylocy = request_input['arena']['state'][mypos]['y']
+    print(mypos, mylocx, mylocy)
+        
+    # TODO add your implementation here to replace the random response
+    
     
     return moves[random.randrange(len(moves))]
 
