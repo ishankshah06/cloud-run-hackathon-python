@@ -40,12 +40,24 @@ def move():
     mypos = request_input['_links']['self']['href']
     mylocx = request_input['arena']['state'][mypos]['x']
     mylocy = request_input['arena']['state'][mypos]['y']
+    mydirection = request_input['arena']['state'][mypos]['direction']
+    washit = request_input['arena']['state'][mypos]['wasHit']
+
+    if washit == True:
+        return 'R'
     print(mypos, mylocx, mylocy)
-    hitzonex = mylocx + 3
-    if hitzonex > dimsx :
-        lagdim = hitzonex - dimsx
-    movezone = mylocx - 3
-    
+    if mydirection == 'W':
+        hitzonex = mylocx + 3
+        hitzoney = mylocy + 3
+        if hitzonex > dimsx :
+            lagdim = hitzonex - dimsx
+            if lagdim < 3:
+                lagdimy = dimsy - hitzoney
+                if lagdimy < 3:
+                    return 'R'
+                else:
+                    return 'L'
+
             
         
     # TODO add your implementation here to replace the random response
