@@ -34,7 +34,7 @@ def move():
     logger.info(request.json)
     request_input = request.json
     ## getting my position 
-    print("val printintg")
+    print("new deployment")
     mypos = request_input['_links']['self']['href']
     mylocx = request_input['arena']['state'][mypos]['x']
     mylocy = request_input['arena']['state'][mypos]['y']
