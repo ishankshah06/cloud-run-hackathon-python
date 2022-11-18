@@ -57,33 +57,33 @@ def move():
     #                 return 'R'
     #             else:
     #                 return 'L'
-    enemyfound = False
-    if mydirection == 'N':
-        movelocationlag = dimsy - mylocy
-        if movelocationlag > 3 :
-            for target in request_input['arena']['state']:
-                if mypos not in target:
-                    enemylocx = target['x']
-                    enemylocy = target['y']
-                    if enemylocx == mylocx:
-                        if enemylocy > mylocy:
-                            if enemylocy - mylocy < 3:
-                                return 'T'
-                                enemyfound = True
+    # enemyfound = False
+    # if mydirection == 'N':
+    #     movelocationlag = dimsy - mylocy
+    #     if movelocationlag > 3 :
+    #         for target in request_input['arena']['state']:
+    #             if mypos not in target:
+    #                 enemylocx = target['x']
+    #                 enemylocy = target['y']
+    #                 if enemylocx == mylocx:
+    #                     if enemylocy > mylocy:
+    #                         if enemylocy - mylocy < 3:
+    #                             return 'T'
+    #                             enemyfound = True
     
 
-    if mydirection == 'W':
-        movelocationlag = dimsx - mylocx
-        if movelocationlag > 3 :
-            for target in request_input['arena']['state']:
-                if mypos not in target:
-                    enemylocx = target['x']
-                    enemylocy = target['y']
-                    if enemylocy == mylocy:
-                        if enemylocx > mylocx:
-                            if enemylocy - mylocy < 3:
-                                enemyfound = True
-                                return 'T'                        
+    # if mydirection == 'W':
+    #     movelocationlag = dimsx - mylocx
+    #     if movelocationlag > 3 :
+    #         for target in request_input['arena']['state']:
+    #             if mypos not in target:
+    #                 enemylocx = target['x']
+    #                 enemylocy = target['y']
+    #                 if enemylocy == mylocy:
+    #                     if enemylocx > mylocx:
+    #                         if enemylocy - mylocy < 3:
+    #                             enemyfound = True
+    #                             return 'T'                        
                                 
     
 
