@@ -32,11 +32,13 @@ def index():
 def move():
     request.get_data()
     logger.info(request.json)
-    
+    request_input = request.json
+    print(type(request_input))
+    print("Datais printing ")
     print(request.json)
     # TODO add your implementation here to replace the random response
     print("Test print")
-    print(PlayerState.x)
+    
     return moves[random.randrange(len(moves))]
 
 if __name__ == "__main__":
