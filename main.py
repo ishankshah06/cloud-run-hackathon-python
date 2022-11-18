@@ -35,8 +35,15 @@ def move():
     
     print(request.json)
     # TODO add your implementation here to replace the random response
-    print(random.randrange(len(moves)))
-    return moves[random.randrange(len(moves))]
+    print(moves[random.randrange(len(moves))])
+    sumdimension = PlayerState.x + PlayerState.y
+    move = "L" 
+    if sumdimension/2 == 0:
+        move = "T"
+    else:
+        move = "F"
+    # return moves[random.randrange(len(moves))]
+    return move
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
