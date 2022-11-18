@@ -33,8 +33,9 @@ def move():
     request.get_data()
     logger.info(request.json)
     
+    print(request.json)
     # TODO add your implementation here to replace the random response
-    
+    print(random.randrange(len(moves)))
     return moves[random.randrange(len(moves))]
 
 if __name__ == "__main__":
